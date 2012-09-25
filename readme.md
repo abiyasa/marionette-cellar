@@ -4,6 +4,7 @@ This is based on [Backbone Wine-cellar example](https://github.com/ccoenraets/ba
 ## Current Status
 * Server uses fake database. Restarts server to reset wine database.
 * Server supports adding new wine, listing all wines, deleting wine, and updating wine
+* Frontend still using pure Backbone
 
 ## Setting Up
 * To install:
