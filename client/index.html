@@ -29,6 +29,10 @@ This is a sample application part of of three-part tutorial showing how to build
 	<a href='#wines/<%= id %>'><%= name %></a>
 </script>
 
+<!-- empty template, marionette compositeview requires it -->
+<script type="text/template" id="tpl-wine-list">
+</script>
+
 <script type="text/template" id="tpl-wine-details">
 
     <div class="form-left-col">
@@ -60,7 +64,8 @@ This is a sample application part of of three-part tutorial showing how to build
 <script src="../lib/jquery-1.7.1.min.js"></script>
 <script src="../lib/underscore-min.js"></script>
 <script src="../lib/backbone-min.js"></script>
-<script src="js/main.js"></script>   
+<script src="../lib/backbone.marionette.js"></script>
+<script src="js/main-marionette.js"></script>   
 
 </body>
 </html>
