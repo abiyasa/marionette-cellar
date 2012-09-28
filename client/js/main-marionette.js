@@ -50,7 +50,7 @@ $(function () {
         }
         */
     });
-    
+
     // Main app
     var MyApp = new Backbone.Marionette.Application();
     MyApp.addRegions({
@@ -59,6 +59,7 @@ $(function () {
         sidebar: '#sidebar'
     });
     
+    // TODO use  marionette's router?
     // Router
     var AppRouter = Backbone.Router.extend({
     
@@ -66,13 +67,7 @@ $(function () {
             '': 'list'
         },
     
-        initialize: function () {
-            MyApp.start();
-            MyApp.header.show(new HeaderView());
-        },
-    
         list: function () {
-            
             // prepare wine list
             this.wineList = new WineCollection();
             var self = this;
@@ -92,8 +87,15 @@ $(function () {
         }
     
     });
+
+    // init my app
+    MyApp.addInitializer(function (options) {
+        var appRouter = new AppRouter();
+        Backbone.history.start();
+        
+        // show header
+        MyApp.header.show(new HeaderView());
+    });
     
-    // TODO better starting using marionette's router?
-    var app = new AppRouter();
-    Backbone.history.start();
+    MyApp.start();
 });
