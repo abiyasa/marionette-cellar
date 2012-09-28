@@ -64,7 +64,8 @@ $(function () {
     var AppRouter = Backbone.Router.extend({
     
         routes: {
-            '': 'list'
+            '': 'list',
+            'wines/:id': 'wineDetails'
         },
     
         list: function () {
@@ -84,6 +85,21 @@ $(function () {
                     }
                 }
             });
+        },
+        
+        wineDetails: function (id) {
+            if (this.wineList) {
+                this.wine = this.wineList.get(id);
+                
+                if (this.wineView) {
+                    this.wineView.close();
+                }
+                this.wineView = new WineView({ model: this.wine });
+                $('#content').html(this.wineView.render().el);
+            } else {
+                this.requestedId = id;
+                this.list();
+            }
         }
     
     });
